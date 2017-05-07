@@ -4,6 +4,10 @@ var NobleDevice = require('noble-device');
 var Upload = require('./Upload');
 var Update = require('./Update');
 
+// scan Parrot pot and Flower power
+var LIVE_SERVICE_UUID_PARROT_POT            = '39e1f90084a811e2afba0002a5d5c51b';
+var LIVE_SERVICE_UUID_FLOWER_POWER          = '39e1fa0084a811e2afba0002a5d5c51b';
+
 var LIVE_SERVICE_UUID                       = '39e1fa0084a811e2afba0002a5d5c51b';
 var CALIBRATION_SERVICE_UUID                = '39e1fe0084a811e2afba0002a5d5c51b';
 
@@ -60,7 +64,8 @@ NobleDevice.Util.mixin(FlowerPower, NobleDevice.DeviceInformationService, [
 		'readManufacturerName'
 		]);
 
-FlowerPower.SCAN_UUIDS = [LIVE_SERVICE_UUID];
+// scan Parrot pot and Flower power
+FlowerPower.SCAN_UUIDS = [LIVE_SERVICE_UUID_PARROT_POT,LIVE_SERVICE_UUID_FLOWER_POWER];
 
 FlowerPower.prototype.toString = function() {
 	return JSON.stringify({
